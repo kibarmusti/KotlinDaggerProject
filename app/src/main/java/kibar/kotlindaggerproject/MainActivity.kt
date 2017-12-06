@@ -3,6 +3,7 @@ package kibar.kotlindaggerproject
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import android.widget.Button
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
@@ -17,8 +18,12 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        supportFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, FavoriteFragment())
-                .commitAllowingStateLoss()
+        findViewById<Button>(R.id.showFragment).setOnClickListener({
+            supportFragmentManager.beginTransaction()
+                    .add(R.id.fragmentContainer, FavoriteFragment())
+                    .disallowAddToBackStack()
+                    .commitAllowingStateLoss()
+        })
     }
+
 }

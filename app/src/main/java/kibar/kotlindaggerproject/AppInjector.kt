@@ -9,14 +9,12 @@ import android.support.v4.app.FragmentActivity
 import android.support.v4.app.FragmentManager
 import dagger.android.AndroidInjection
 import dagger.android.support.AndroidSupportInjection
-import kibar.kotlindaggerproject.App
 import kibar.kotlindaggerproject.di.misc.Injectable
 
 object AppInjector {
 
     fun init(app: App) =
             app.registerActivityLifecycleCallbacks(object : Application.ActivityLifecycleCallbacks {
-
                 fun handleActivity(activity: Activity) {
                     if (activity is FragmentActivity) {
                         activity.supportFragmentManager.registerFragmentLifecycleCallbacks(object : FragmentManager.FragmentLifecycleCallbacks() {

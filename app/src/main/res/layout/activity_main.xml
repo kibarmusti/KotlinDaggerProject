@@ -6,13 +6,15 @@
         android:layout_height="match_parent"
         tools:context="kibar.kotlindaggerproject.MainActivity">
 
-    <TextView
+    <Button
+            android:id="@+id/showFragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello world!"/>
+            android:text="Show fragment"
+            android:layout_centerInParent="true"/>
 
-    <fragment
-        android:id="@+id/fragmentContainer"
+    <FrameLayout
+            android:id="@+id/fragmentContainer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
