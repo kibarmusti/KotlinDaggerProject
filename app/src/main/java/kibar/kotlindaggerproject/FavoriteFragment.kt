@@ -23,6 +23,9 @@ class FavoriteFragment : Fragment(), Injectable {
     lateinit var viewModelFactory: ViewModelFactory
     val viewmodel by lazy { ViewModelProviders.of(this, viewModelFactory).get(FavoriteFragmentViewModel::class.java) }
 
+    @Inject
+    lateinit var favorite: Favorite
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_favorite, container)
     }

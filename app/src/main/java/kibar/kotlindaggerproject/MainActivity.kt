@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
+import kibar.kotlindaggerproject.room.RoomDatabase
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
@@ -13,6 +14,9 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
     @Inject
     lateinit var androidInjector: DispatchingAndroidInjector<Fragment>
     override fun supportFragmentInjector() = androidInjector
+
+    @Inject
+    lateinit var database: RoomDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
